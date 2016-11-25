@@ -1,0 +1,56 @@
+<div class="form-group col-md-offset-3 col-lg-offset-3 col-md-6 col-lg-6 col-sm-12 col-xs-12" style="margin-top: 1%;">
+    <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search">Search</i></div>
+        <input type="text" class="form-control" placeholder="Search by Anything" ng-model="searchFish">
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th style="width:20%">First Name</th>
+        <th style="width:20%">Last Name</th>
+        <th style="width:10%">Age</th>
+        <th style="width:10%">DOB</th>
+        <th style="width:10%">Gender</th>
+        <th style="width:10%">Phone</th>
+        <th style="width:20%">Text</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><input class="form-control" ng-model="patient.fname"></td>
+        <td><input class="form-control" ng-model="patient.lname"></td>
+        <td><input class="form-control" ng-model="patient.age"></td>
+        <td><input class="form-control" ng-model="patient.dob"></td>
+        <td><input class="form-control" ng-model="patient.gender"></td>
+        <td><input class="form-control" ng-model="patient.mobile"></td>
+        <td><input class="form-control" ng-model="patient.text"></td>
+
+        <td>
+            <button class="btn-primary" ng-click="update()">update</button>
+        </td>
+        <td>
+            <button class="btn-primary" ng-click="clear()">clear</button>
+        </td>
+
+
+    </tr>
+    <tr ng-repeat="patient in patient | filter: searchFish">
+        <td>{{patient.fname}}</td>
+        <td>{{patient.lname}}</td>
+        <td>{{patient.age}}</td>
+        <td>{{patient.dob}}</td>
+        <td>{{patient.gender}}</td>
+        <td>{{patient.mobile}}</td>
+        <td>{{patient.text}}</td>
+        <td>
+            <button class="btn-danger" ng-click="remove(patient)">Remove</button>
+        </td>
+        <td>
+            <button class="btn-danger" ng-click="Edit(patient._id)">Edit</button>
+        </td>
+
+    </tr>
+    </tbody>
+</table>

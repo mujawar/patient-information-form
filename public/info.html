@@ -1,0 +1,78 @@
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-top: 1%;">
+    <form ng-submit="AddDetails()" data-toggle="validator" role="form">
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+            <div class="form-group row">
+                <label class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-form-label">First Name</label>
+                <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                    <input type="text" class="form-control" placeholder="First Name" name="firstname"
+                           ng-model="patient.fname" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-form-label">Last Name</label>
+                <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                    <input type="text" class="form-control" placeholder="Last Name" name="lastname"
+                           ng-model="patient.lname" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-form-label">Age</label>
+                <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                    <input type="text" class="form-control" placeholder="Age" ng-model="patient.age" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-form-label">DOB</label>
+                <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 input-group date"
+                     style="width: 65%;padding-left: 14px;">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    <input ng-model="patient.dob" class="form-control"
+                           datepicker-popup="dd/MM/yyyy"
+                           custom-class="getDayClass(currentDate, mode)"
+                           datepicker-options="dateOptions"
+                           placeholder="From Date" required>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+            <div class="form-group row">
+                <label class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-form-label" name="gender">Gender</label>
+                <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                    <select class="form-control" ng-change="onRequestTypeChange()"
+                            ng-model="patient.gender" name="gender"
+                            required>
+                        <option value=""></option>
+                        <option selected value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-form-label">Phone</label>
+                <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                    <input type="text" class="form-control" placeholder="Phone" name="phone" ng-model="patient.mobile"
+                           required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-form-label">Text</label>
+                <div class="col-sm-8 col-lg-8 col-md-9 col-xs-12" style="    width: 65%;">
+
+                    <div class="component-group-item component-group-text inline-block nopadding"
+                         style="width: 100%">
+                                               <textarea ng-model="patient.text" class="form-control"
+                                                         rows="5" cols="20" ng-required="true"
+                                                         style="height: 76px;"></textarea>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-left: 49%;">
+            <button type="submit" class="btn-primary">Submit</button>
+        </div>
+        <div style="text-align: center;text-align: center;color: green;margin-top: 5px;margin-left: 5%;">{{message}}</div>
+    </form>
+</div>
+
